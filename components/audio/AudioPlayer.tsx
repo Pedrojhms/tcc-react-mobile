@@ -51,11 +51,15 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
     }
   };
 
-  const onPlaybackStatusUpdate = (status: any) => {
+  const onPlaybackStatusUpdate = async (status: any) => {
     if (status.isLoaded) {
       setIsPlaying(status.isPlaying);
       if (status.didJustFinish) {
         setIsPlaying(false);
+        // Resetar para o início ao terminar
+        if (sound) {
+          await sound.setPositionAsync(0);
+        }
       }
     }
   };
@@ -63,8 +67,15 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
   const handlePlay = async () => {
     try {
       if (sound) {
-        await sound.playAsync();
-        setIsPlaying(true);
+        const status = await sound.getStatusAsync();
+        // Checa se o status está carregado antes de acessar positionMillis/durationMillis
+        if (status.isLoaded) {
+          if (status.positionMillis === status.durationMillis) {
+            await sound.setPositionAsync(0);
+          }
+          await sound.playAsync();
+          setIsPlaying(true);
+        }
       }
     } catch (error) {
       logger.error('Erro ao reproduzir:', error);

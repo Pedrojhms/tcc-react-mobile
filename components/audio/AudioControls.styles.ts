@@ -6,8 +6,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10,
+    width: '100%',
+    maxWidth: 350, // impede que os botões “estiquem” demais em telas largas
+    alignSelf: 'center',
   },
   spacer: {
-    width: 10,
+    width: 20,
   },
 });

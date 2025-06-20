@@ -132,8 +132,9 @@ const styles = StyleSheet.create({
   audioContainer: {
     width: '100%',
     alignItems: 'center',
-    gap: 20,
-  }
+    gap: 20,     // gap para espaçamento entre player e botão
+    marginBottom: 20,
+  },
 });
 
 export default TabOneScreen;

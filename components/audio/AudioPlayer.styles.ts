@@ -4,7 +4,11 @@ export const styles = StyleSheet.create({
   container: {
     width: '100%',
     alignItems: 'center',
+    justifyContent: 'center',
     marginVertical: 16,
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   playPauseButton: {
     marginBottom: 10,
