@@ -27,7 +27,7 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({
       }
 
       const result = await ExpoImagePicker.launchImageLibraryAsync({
-        mediaTypes: ExpoImagePicker.MediaTypeOptions.Images,
+        mediaTypes: 'images',
         allowsEditing: true,
         aspect: [4, 3],
         quality: 1,
@@ -54,7 +54,7 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({
       }
 
       const result = await ExpoImagePicker.launchCameraAsync({
-        mediaTypes: ExpoImagePicker.MediaTypeOptions.Images,
+        mediaTypes: 'images',
         allowsEditing: true,
         aspect: [4, 3],
         quality: 1,
@@ -91,4 +91,3 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({
     </View>
   );
 };
-

@@ -43,6 +43,7 @@ export const useAudio = (fileUri: string) => {
         sound.unloadAsync();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fileUri]);
 
   const play = async () => {
